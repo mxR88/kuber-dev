@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: declarative-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rstapp
+  template:
+    metadata:
+      labels:
+        app: rstapp
+    spec:
+      containers:
+      - name: rstapp
+        image: nakatamodem/lesson:v1
+        ports:
+        - containerPort: 8080
